@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbao6eyd1cdr0"]
+
+[ext_resource type="Script" path="res://KillGameWithEscape.gd" id="1_omyy2"]
+[ext_resource type="Texture2D" uid="uid://bxab2hlawpoce" path="res://Resources/player.png" id="1_t4cjq"]
+[ext_resource type="Texture2D" uid="uid://cfnbo4vvyl17i" path="res://Resources/Ground.png" id="2_y40b2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efm8t"]
+size = Vector2(64, 62)
+
+[node name="Scene" type="Node2D"]
+position = Vector2(-149, -129)
+script = ExtResource("1_omyy2")
+
+[node name="Player" type="Node" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Player"]
+position = Vector2(510, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/RigidBody2D"]
+shape = SubResource("RectangleShape2D_efm8t")
+
+[node name="Sprite" type="Sprite2D" parent="Player/RigidBody2D"]
+scale = Vector2(1, 0.984)
+texture = ExtResource("1_t4cjq")
+
+[node name="Ground1" type="Node" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Ground1"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1/RigidBody2D"]
+position = Vector2(517, 623)
+shape = SubResource("RectangleShape2D_efm8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground1/RigidBody2D"]
+position = Vector2(515, 624)
+texture = ExtResource("2_y40b2")
+
+[node name="Ground2" type="Node" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Ground2"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/RigidBody2D"]
+position = Vector2(581, 622)
+shape = SubResource("RectangleShape2D_efm8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2/RigidBody2D"]
+position = Vector2(580, 625)
+texture = ExtResource("2_y40b2")
