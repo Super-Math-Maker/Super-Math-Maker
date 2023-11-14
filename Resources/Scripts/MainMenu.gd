@@ -5,9 +5,12 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	playButton.pressed.connect(_unimpl)
+	playButton.pressed.connect(_run)
 	exitButton.pressed.connect(_exit)
 	pass # Replace with function body.
+
+func _run():
+	get_tree().change_scene_to_file("res://Resources/Scenes/Pick Question Menu.tscn")
 
 func _unimpl():
 	print("Unimplemented")
