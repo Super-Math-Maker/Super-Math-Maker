@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://diigps1gagkfl"]
+[gd_scene load_steps=3 format=3 uid="uid://diigps1gagkfl"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/MainMenu.gd" id="1_1mjf6"]
+[ext_resource type="PackedScene" uid="uid://l04ygut815jp" path="res://Resources/Scenes/GameManagerScene.tscn" id="2_sn4jj"]
 
 [node name="Main Menu" type="Node2D"]
 
@@ -32,3 +33,6 @@ offset_right = 851.0
 offset_bottom = 126.0
 theme_override_font_sizes/font_size = 64
 text = "Super Math Maker"
+
+[node name="GameManagerScene" parent="." instance=ExtResource("2_sn4jj")]
+unique_name_in_owner = true

@@ -1,5 +1,5 @@
 extends Node
-
+@onready var gm = get_node("/root/GameManagerScene")
 @onready var fractionButton = %Fractions 
 @onready var geometryButton = %Geometry
 @onready var preAlgButton = %PreAlg
@@ -16,7 +16,7 @@ func _unimpl():
 	_run()
 
 func _run():
-		get_tree().change_scene_to_file("res://Resources/Scenes/Game.tscn")
+		get_tree().change_scene_to_file("res://Resources/Scenes/AnswerQuestion.tscn")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

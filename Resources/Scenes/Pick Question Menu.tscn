@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://de1ji5atsfwiw"]
+[gd_scene load_steps=3 format=3 uid="uid://de1ji5atsfwiw"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/QuestionTypeMenu.gd" id="1_8q8cn"]
+[ext_resource type="PackedScene" uid="uid://cwt1srj7e4lfa" path="res://Resources/Scenes/GameManagerScene.tscn" id="2_0fxfn"]
 
 [node name="Pick Question Menu" type="Node2D"]
 script = ExtResource("1_8q8cn")
@@ -41,3 +42,6 @@ offset_right = 851.0
 offset_bottom = 126.0
 theme_override_font_sizes/font_size = 64
 text = "Super Math Maker"
+
+[node name="GameManagerScene" parent="." instance=ExtResource("2_0fxfn")]
+unique_name_in_owner = true

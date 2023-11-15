@@ -2,6 +2,7 @@ extends Node
 
 @onready var playButton = %"Play Game Button"
 @onready var exitButton = %"Exit Game Button"
+@onready var gm = get_node("/root/GameManagerScene")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
