@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch81aakhuxma7"]
 
-[ext_resource type="Script" path="res://Resources/Scripts/Questions.gd" id="1_xi8dc"]
+[ext_resource type="Script" path="res://Resources/Scripts/Questions.gd" id="1_f01j7"]
 
 [node name="AnswerQuestion" type="Node2D"]
-script = ExtResource("1_xi8dc")
+script = ExtResource("1_f01j7")
 
 [node name="AnswerCanvas" type="CanvasGroup" parent="."]
 

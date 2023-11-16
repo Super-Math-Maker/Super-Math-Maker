@@ -16,7 +16,7 @@ func _unimpl():
 	_run()
 
 func _run():
-		get_tree().change_scene_to_file("res://Resources/Scenes/AnswerQuestion.tscn")
+		get_tree().change_scene_to_file("res://Resources/Scenes/Menus/AnswerQuestion.tscn")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

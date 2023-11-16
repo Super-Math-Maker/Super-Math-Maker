@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _run():
-	get_tree().change_scene_to_file("res://Resources/Scenes/Pick Question Menu.tscn")
+	get_tree().change_scene_to_file("res://Resources/Scenes/Menus/Pick Question Menu.tscn")
 
 func _unimpl():
 	print("Unimplemented")
