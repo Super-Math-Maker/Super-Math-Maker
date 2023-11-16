@@ -1,9 +1,8 @@
-    h1 {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        text-align: left;
-        font-size: 28px;
-        font-weight: bold;
+
+    .emails{
+        font-size: 10px;
     }
+
     p {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         text-align: left;
@@ -15,6 +14,25 @@
         margin-right: 100px;
         object-fit: contain;
     }
+    .Title{
+        font-size: 30px;
+        text-align: center;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        border-radius: 10px;
+        border-style: ridge;
+        border-color: black;
+        background-color: rgb(243, 219, 219);
+    }
+
     .background{
         margin-left: 100px;
         margin-right: 100px;
@@ -28,6 +46,12 @@
         border-style: ridge;
         border-color: black;
         background-color: rgb(243, 219, 219);
+    }
+    .background h1{
+        text-align: left;
+        font-size: 28px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bold;
     }
 
     .Description{
@@ -45,6 +69,13 @@
         background-color: rgb(243, 219, 219);
     }
 
+    .Description h1{
+        text-align: left;
+        font-size: 28px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bold;
+    }
+
     .Roster{
         margin-left: 100px;
         margin-right: 100px;
@@ -60,6 +91,13 @@
         background-color: rgb(243, 219, 219);
     }
 
+    .Roste h1{
+        text-align: left;
+        font-size: 28px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bold;
+    }
+
     .Links{
         margin-left: 100px;
         margin-right: 100px;
@@ -73,6 +111,13 @@
         border-style: ridge;
         border-color: black;
         background-color: rgb(243, 219, 219);
+    }
+
+    .Links h1{
+        text-align: left;
+        font-size: 28px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bold;
     }
 
     body{
