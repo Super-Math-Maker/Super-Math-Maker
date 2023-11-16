@@ -1,0 +1,80 @@
+    h1 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: left;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    p {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: left;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+        margin-left: 40px;
+        margin-right: 100px;
+        object-fit: contain;
+    }
+    .background{
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-radius: 10px;
+        border-style: ridge;
+        border-color: black;
+        background-color: rgb(243, 219, 219);
+    }
+
+    .Description{
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-radius: 10px;
+        border-style: ridge;
+        border-color: black;
+        background-color: rgb(243, 219, 219);
+    }
+
+    .Roster{
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border-radius: 10px;
+        border-style: ridge;
+        border-color: black;
+        background-color: rgb(243, 219, 219);
+    }
+
+    .Links{
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 2px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        border-style: ridge;
+        border-color: black;
+        background-color: rgb(243, 219, 219);
+    }
+
+    body{
+        background-color: rgb(255, 205, 213);
+    }
