@@ -8,10 +8,17 @@ func _ready():
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
+	if (gm.getState() == gm.gameState.STATE_PAUSED):
+		print("lmfao")
+	
+	
 	if ( Input.is_key_pressed(KEY_T)):
 		cam.position = Vector2(0,0)
-		pass
+	if ( Input.is_key_pressed(KEY_ESCAPE)):
+		var escapeMenu = load("res://Resources/Scenes/Menus/Pause Menu.tscn")
+		add_child(escapeMenu)
+	pass
 	
 	#hack to tell gamemanger this is the game scene
 func _setGame():

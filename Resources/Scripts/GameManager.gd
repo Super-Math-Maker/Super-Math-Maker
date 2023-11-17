@@ -7,10 +7,14 @@ var game = null
 enum gameState {
 	STATE_MENU,
 	STATE_LEVEL_EDITOR,
-	STATE_GAMEPLAY
+	STATE_GAMEPLAY,
+	STATE_PAUSED
 };
 
-var state = gameState.STATE_LEVEL_EDITOR;
+func getState():
+	return state
+
+var state = gameState.STATE_LEVEL_EDITOR
 var currentLevel = 1
 var levelNode = null 
 

@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://ccbarvjng1wwa"]
+[gd_scene load_steps=2 format=3 uid="uid://ccbarvjng1wwa"]
+
+[ext_resource type="Script" path="res://Resources/Scenes/Menus/Pause Menu.gd" id="1_wsmp8"]
 
 [node name="Pause Menu" type="Node2D"]
+script = ExtResource("1_wsmp8")
+
+[node name="ContinueGame" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 400.0
+offset_top = 40.0
+offset_right = 515.0
+offset_bottom = 75.0
+scale = Vector2(4.05144, 4.66263)
+text = "Continue"
+
+[node name="Settings" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 400.0
+offset_top = 240.0
+offset_right = 515.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.05144, 4.66263)
+text = "Settings"
+
+[node name="Exit to Menu" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 400.0
+offset_top = 440.0
+offset_right = 515.0
+offset_bottom = 475.0
+scale = Vector2(4.05144, 4.66263)
+text = "Exit to Menu
+"

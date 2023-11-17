@@ -19,11 +19,13 @@ text = "Play Game"
 
 [node name="Exit Game Button" type="Button" parent="CanvasGroup"]
 unique_name_in_owner = true
-offset_left = 384.0
-offset_top = 425.0
-offset_right = 474.0
-offset_bottom = 456.0
+offset_left = 375.0
+offset_top = 410.0
+offset_right = 465.0
+offset_bottom = 441.0
 scale = Vector2(4.05144, 4.66263)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Exit Game"
 
 [node name="Label" type="Label" parent="CanvasGroup"]
