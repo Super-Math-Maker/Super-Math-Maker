@@ -2,7 +2,6 @@ extends Node2D
 @onready var gm = get_node("/root/GameManagerScene")
 @onready var cam = %Camera
 @onready var player = null
-
 func _ready():
 	_setGame()
 	pass
@@ -12,12 +11,8 @@ func _process(_delta):
 	if (gm.getState() == gm.gameState.STATE_PAUSED):
 		print("lmfao")
 	
-	
 	if ( Input.is_key_pressed(KEY_T)):
 		cam.position = Vector2(0,0)
-	if ( Input.is_key_pressed(KEY_ESCAPE)):
-		var escapeMenu = load("res://Resources/Scenes/Menus/Pause Menu.tscn")
-		add_child(escapeMenu)
 	pass
 	
 	#hack to tell gamemanger this is the game scene

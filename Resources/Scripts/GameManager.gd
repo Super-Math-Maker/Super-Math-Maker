@@ -3,6 +3,7 @@ extends Node
 var levelEditor = null
 var level = null
 var game = null
+var pauseMenu = null
 
 enum gameState {
 	STATE_MENU,
@@ -17,7 +18,7 @@ func getState():
 var state = gameState.STATE_LEVEL_EDITOR
 var currentLevel = 1
 var levelNode = null 
-
+var escapeMenu = null
 #Table for Paths.
 
 # Increments Level then loads it. Levels must be named level#.tscn in the level folder
@@ -38,8 +39,21 @@ func _startGame():
 	remove_child(levelEditor)
 	game._startGame()
 	
+func _input(event):
+	var just_pressed = event.is_pressed() and not event.is_echo()
+	if Input.is_key_pressed(KEY_ESCAPE) and just_pressed:
+		if escapeMenu == null:
+			var escape = load("res://Resources/Scenes/Menus/Pause Menu.tscn")
+			escapeMenu = escape.instantiate()
+			add_child(escapeMenu)
+		else:
+			killEscapeMenu()
 
+func killEscapeMenu():
+	remove_child(escapeMenu)
+	escapeMenu = null	
 	
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
