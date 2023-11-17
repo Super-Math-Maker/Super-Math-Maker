@@ -14,6 +14,8 @@ var state = gameState.STATE_LEVEL_EDITOR;
 var currentLevel = 1
 var levelNode = null 
 
+#Table for Paths.
+
 # Increments Level then loads it. Levels must be named level#.tscn in the level folder
 func _loadLevel(node):
 	var levelpath = "res://Resources/Scenes/Levels/level" + str(currentLevel) + ".tscn"
