@@ -7,7 +7,7 @@ extends Node2D
 @onready var gm = get_node("/root/GameManagerScene")
 
 var time = 0.0
-var MAX_TIME = .1
+var MAX_TIME = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

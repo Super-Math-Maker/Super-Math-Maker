@@ -13,7 +13,8 @@ offset_top = 31.0
 offset_right = 844.0
 offset_bottom = 79.0
 theme_override_font_sizes/font_size = 32
-text = "Qusetion: 2x + 4 = ?"
+text = "Solve for X 
+2x + 4 = 0"
 horizontal_alignment = 1
 
 [node name="Answer" type="TextEdit" parent="AnswerCanvas"]
