@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var gm = get_node("/root/GameManager")
 
 
 const SPEED = 300.0
@@ -9,6 +10,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	if gm.state != gm.gameState.STATE_GAMEPLAY:
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta

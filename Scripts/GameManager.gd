@@ -4,11 +4,12 @@ extends Node
 @onready var pickQuestionTypeScene = "res://Scenes/Menus/pickquestiontype.tscn"
 @onready var answerQuestionScene = "res://Scenes/Menus/AnswerQuestion.tscn"
 @onready var levelEditorScene = "res://Scenes/Menus/LevelEditorScene.tscn"
+@onready var pauseMenuScene = "res://Scenes/Menus/Pause Menu.tscn"
 
 @onready var level1Scene = "res://Scenes/Level/Level1.tscn"
 @onready var playerScene = "res://Scenes/Player.tscn"
 
-
+#Note: do not changeState(pause), just call pause game and unpause game
 enum gameState{
 	STATE_NONE,
 	STATE_MAIN_MENU,
@@ -32,6 +33,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _input(event):
+	var just_pressed = event.is_pressed() and not event.is_echo()
+	if Input.is_key_pressed(KEY_A) and just_pressed:
+		if ( state == gameState.STATE_GAMEPLAY ):
+			pauseGame()
+		else:
+			unPauseGame()
 
 func changeState(newState):
 	if newState == state:
@@ -74,7 +83,23 @@ func _startLevelEditor():
 	
 func _StartGame():
 	player = ImmediateLoadObject(playerScene)
-	
+
+
+func pauseGame():
+	if state != gameState.STATE_GAMEPLAY:
+		print("Cant pause unless gameplay state")
+		return
+	state = gameState.STATE_PAUSE_MENU
+	currentMenuObj = ImmediateLoadObject(pauseMenuScene)
+func unPauseGame():
+	if state != gameState.STATE_PAUSE_MENU:
+		print("Cant unpause unless pause state")
+		return
+		
+	state = gameState.STATE_GAMEPLAY
+	remove_child(currentMenuObj)
+	pass
+
 #Loads and adds child
 func ImmediateLoadObject( path ):
 	var scene = load(path)
