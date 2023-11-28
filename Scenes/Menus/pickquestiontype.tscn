@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyawjhjjrowu4"]
+
+[ext_resource type="Script" path="res://Scripts/PickQuestionType.gd" id="1_vii3u"]
+
+[node name="PickQuestionType" type="Node2D"]
+script = ExtResource("1_vii3u")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 587.0
+offset_right = 675.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 30
+text = "Pick Question Type
+"
+
+[node name="FractionsButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 492.0
+offset_top = 118.0
+offset_right = 785.0
+offset_bottom = 214.0
+theme_override_font_sizes/font_size = 64
+text = "  Fractions  "
+
+[node name="GeometryButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 489.0
+offset_top = 289.0
+offset_right = 838.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 64
+text = " Geometry "
+
+[node name="PreAlgebraButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 492.0
+offset_top = 479.0
+offset_right = 785.0
+offset_bottom = 575.0
+theme_override_font_sizes/font_size = 64
+text = "Pre-Algebra"

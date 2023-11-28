@@ -10,15 +10,30 @@ config_version=5
 
 [application]
 
-config/name="Project"
-run/main_scene="res://Resources/Scenes/Menus/Main Menu.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/name="SuperMathMakerP2"
+run/main_scene="res://Scenes/Game.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManagerScene="*res://Resources/Scenes/GameManagerScene.tscn"
+GameManager="*res://Scenes/GameManager.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [dotnet]
 
-project/assembly_name="Project"
+project/assembly_name="SuperMathMakerP2"
+
+[editor]
+
+import/size/viewport_height=648
+import/size/viewport_width=1152
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

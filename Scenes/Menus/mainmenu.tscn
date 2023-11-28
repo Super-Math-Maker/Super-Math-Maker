@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://btdvdqhq5xijf"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_a4e0c"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_a4e0c")
+
+[node name="PlayButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 529.0
+offset_top = 133.0
+offset_right = 740.0
+offset_bottom = 196.0
+theme_override_font_sizes/font_size = 40
+text = "Play Game"
+
+[node name="ExitButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 534.0
+offset_top = 387.0
+offset_right = 745.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 40
+text = "Exit Game"
