@@ -5,7 +5,7 @@ extends Node
 @onready var questionText = %"Question Text"
 @onready var textBox = %TextBox
 
-const MAX_ANSWER_TIME = 0
+const MAX_ANSWER_TIME = 2
 var timeLeft = 0.0
 
 # Called when the node enters the scene tree for the first time.

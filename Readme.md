@@ -17,3 +17,5 @@ Game overview
 	Note: menus control their own logic in their own script, each script tells buttons what to do.
 Level:
 	The level is a tilemap. All a tilemap is, is a grid of 32x32 pixel tiles (We can change size if needed but all tiles msut be the same size). Tiles can not have logic, except for a hitbox for collisions. To add new tiles, add another 32x32 inside of the images/tilemap.png. 
+	
+	Pausing game: at the start of each update function check that gamestate = gameState.GAMEPLAY, if not just return

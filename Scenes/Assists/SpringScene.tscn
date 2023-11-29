@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtp73e06naqmx"]
+
+[ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="1_gm0qq"]
+
+[node name="SpringScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+texture = ExtResource("1_gm0qq")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)

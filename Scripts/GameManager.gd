@@ -8,8 +8,10 @@ extends Node
 
 @onready var level1Scene = "res://Scenes/Level/Level1.tscn"
 @onready var playerScene = "res://Scenes/Player.tscn"
+@onready var camera = $Camera2D
 
-#Note: do not changeState(pause), just call pause game and unpause game
+#Note: do not call changeState(pause), just call pause game and unpause game
+#Note: For rest of states call changeState(state)
 enum gameState{
 	STATE_NONE,
 	STATE_MAIN_MENU,
@@ -30,10 +32,14 @@ func _ready():
 	changeState(gameState.STATE_MAIN_MENU)
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#Maybe this should be in the editor class but may be neater to keep here
 func _process(delta):
-	pass
-
+	if state == gameState.STATE_LEVEL_EDITOR:
+		var directionx = Input.get_axis("ui_left", "ui_right")
+		var directiony = Input.get_axis("ui_up", "ui_down")
+		var CAM_SPEED = 500
+		camera.position += Vector2(directionx,directiony) * CAM_SPEED * delta		
+		
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if Input.is_key_pressed(KEY_A) and just_pressed:
@@ -51,20 +57,22 @@ func changeState(newState):
 		
 func beginState(newstate):
 	if newstate == gameState.STATE_MAIN_MENU:
-		currentMenuObj = ImmediateLoadObject(mainMenuScene)
+		currentMenuObj = ImmediateLoadObject(mainMenuScene,camera)
 	elif newstate == gameState.STATE_MENU_PICK_QUESTION:
-		currentMenuObj = ImmediateLoadObject(pickQuestionTypeScene)
+		currentMenuObj = ImmediateLoadObject(pickQuestionTypeScene,camera)
 	elif newstate == gameState.STATE_ANSWER_QUESTION:
-		currentMenuObj = ImmediateLoadObject(answerQuestionScene)
+		currentMenuObj = ImmediateLoadObject(answerQuestionScene,camera)
 	elif newstate== gameState.STATE_GAMEPLAY:
 		_StartGame()
 	elif newstate == gameState.STATE_LEVEL_EDITOR:
 		_startLevelEditor()
+		player = currentLevel.get_node("Player")
+		camera.position = player.position
 	state = newstate
 	
 func endState():
 	if (currentMenuObj):
-		remove_child(currentMenuObj)
+		camera.remove_child(currentMenuObj)
 		currentMenuObj = null
 	if state == gameState.STATE_MAIN_MENU:
 		pass
@@ -77,32 +85,37 @@ func endState():
 		pass
 		
 func _startLevelEditor():
-	currentLevel = ImmediateLoadObject(level1Scene)
-	currentMenuObj = ImmediateLoadObject(levelEditorScene)
+	currentLevel = ImmediateLoadObject(level1Scene, self)
+	currentMenuObj = ImmediateLoadObject(levelEditorScene,camera)
 	pass
 	
 func _StartGame():
-	player = ImmediateLoadObject(playerScene)
-
-
+		camera.reparent(player)
+		camera.position = Vector2(0,0)
+		
 func pauseGame():
 	if state != gameState.STATE_GAMEPLAY:
 		print("Cant pause unless gameplay state")
 		return
 	state = gameState.STATE_PAUSE_MENU
-	currentMenuObj = ImmediateLoadObject(pauseMenuScene)
+	currentMenuObj = ImmediateLoadObject(pauseMenuScene,camera)
+
 func unPauseGame():
 	if state != gameState.STATE_PAUSE_MENU:
 		print("Cant unpause unless pause state")
 		return
 		
 	state = gameState.STATE_GAMEPLAY
-	remove_child(currentMenuObj)
+	camera.remove_child(currentMenuObj)
 	pass
 
 #Loads and adds child
-func ImmediateLoadObject( path ):
+func ImmediateLoadObject( path, parent ):
 	var scene = load(path)
 	var obj = scene.instantiate()
-	add_child(obj)
+	parent.add_child(obj)
+	
+	#Menu objects need an offset of the screenSize/2
+	if parent == camera:
+		obj.position = Vector2(-640,-360)
 	return obj
