@@ -18,4 +18,33 @@ Game overview
 Level:
 	The level is a tilemap. All a tilemap is, is a grid of 32x32 pixel tiles (We can change size if needed but all tiles msut be the same size). Tiles can not have logic, except for a hitbox for collisions. To add new tiles, add another 32x32 inside of the images/tilemap.png. 
 	
-	Pausing game: at the start of each update function check that gamestate = gameState.GAMEPLAY, if not just return
+	Pausing game: For all entities, at the start of each update function check that gamestate = gameState.GAMEPLAY, if not just return
+	
+	
+TODO:
+Quiz
+	Make Questions
+	Display Questions
+	Get Money for answering
+	
+Assists
+	Springs
+	Figure out rest of them
+	
+Traps
+	Figure out what to do 
+	
+Level Editor
+	Add Assists to level
+	
+Enemies
+	Flyer
+	Walker
+	Jumper
+
+Player
+	Health
+	Attacks
+	
+Goal
+Multiple Levels
