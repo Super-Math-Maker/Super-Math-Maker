@@ -22,10 +22,19 @@ enum gameState{
 	STATE_PAUSE_MENU
 }
 
+enum questionType{
+	Q_NONE,
+	Q_FRACTION,
+	Q_GEOMETRY,
+	Q_PREALG
+};
+
 var state = gameState.STATE_NONE
 var currentMenuObj = null
 var currentLevel = null
 var player = null
+var qtype = questionType.Q_NONE
+var money = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -18,14 +18,16 @@ func _process(delta):
 	pass
 
 func _choseFrac():
+	gm.qtype = gm.questionType.Q_FRACTION
 	_picked()
 func _choseGeo():
+	gm.qtype = gm.questionType.Q_GEOMETRY
 	_picked()
 func _choseAlg():
+	gm.qtype = gm.questionType.Q_PREALG
 	_picked()
 
 func _picked():
-	print("Picked")
 	gm.changeState(gm.gameState.STATE_ANSWER_QUESTION)
 	pass
 	
