@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtp73e06naqmx"]
+[gd_scene load_steps=3 format=3 uid="uid://dtp73e06naqmx"]
 
 [ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="1_gm0qq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cndvs"]
+size = Vector2(64, 52)
+
 [node name="SpringScene" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_cndvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(-1, -2)
+scale = Vector2(2, 2)
 texture = ExtResource("1_gm0qq")
 region_enabled = true
 region_rect = Rect2(64, 0, 32, 32)

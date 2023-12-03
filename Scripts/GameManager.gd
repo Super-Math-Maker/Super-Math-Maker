@@ -35,6 +35,7 @@ var currentLevel = null
 var player = null
 var qtype = questionType.Q_NONE
 var money = 0
+var placedAssists = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -96,6 +97,7 @@ func endState():
 func _startLevelEditor():
 	currentLevel = ImmediateLoadObject(level1Scene, self)
 	currentMenuObj = ImmediateLoadObject(levelEditorScene,camera)
+	player = currentLevel.find_child("Player")
 	pass
 	
 func _StartGame():

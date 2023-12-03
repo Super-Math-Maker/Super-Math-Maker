@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctwdhtlvrhwgr"]
+[gd_scene load_steps=6 format=3 uid="uid://ctwdhtlvrhwgr"]
 
 [ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="1_vf68q"]
 [ext_resource type="PackedScene" uid="uid://2nosrf6gg5da" path="res://Scenes/Player.tscn" id="2_om02p"]
+[ext_resource type="PackedScene" uid="uid://6xq0ckuspxov" path="res://Scenes/Enemies/WalkerEnemyScene.tscn" id="3_tfa5t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lykbg"]
 texture = ExtResource("1_vf68q")
@@ -215,3 +216,10 @@ layer_0/tile_data = PackedInt32Array(1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("2_om02p")]
 position = Vector2(55, 565)
+
+[node name="WalkerEnemyScene" parent="." instance=ExtResource("3_tfa5t")]
+position = Vector2(1052, 509)
+
+[node name="WalkerEnemyScene2" parent="." instance=ExtResource("3_tfa5t")]
+position = Vector2(247, 567)
+direction = 1

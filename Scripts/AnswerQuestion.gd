@@ -4,10 +4,16 @@ extends Node
 @onready var timeLeftText =  %"Time Left Text"
 @onready var questionText = %"Question Text"
 @onready var textBox = %TextBox
+@onready var correctText = %CorrectLabel
+@onready var incorrectText = %"Incorrect Label"
+@onready var moneyText = %"MoneyLabel"
 
-const MAX_ANSWER_TIME = 2
+const MAX_ANSWER_TIME = 5
 var timeLeft = 0.0
 var currentQuestion = null
+var correct = 0
+var incorrect = 0
+var money = 0
 
 class Question:
 	var problem: String
@@ -18,11 +24,30 @@ class Question:
 func _ready():
 	timeLeft = MAX_ANSWER_TIME
 	currentQuestion = _generateQuestion()
+	correct =0 
+	money = 0
+	incorrect = 0
 	pass # Replace with function body.
 
+func _checkAnswer():
+	var yours = textBox.text.strip_edges(true,true)
+	var ansr = currentQuestion.answer.strip_edges(true,true)
+	return yours == ansr
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#Check for enter in text box
+	if ( Input.is_action_just_pressed("ui_text_newline")):
+		if _checkAnswer() == true:
+			print("Correct")
+			correct += 1
+		else:
+			incorrect +=1 
+			print("Incorrect")
+		
+		textBox.text = ""
+		currentQuestion = _generateQuestion()
+		
 	timeLeft -= delta
 	_updateUI()
 	#currentQuestion = _generateQuestion()
@@ -33,6 +58,10 @@ func _updateUI():
 	timeLeftText.text = "Time Left: " + str(int(timeLeft))
 	if ( currentQuestion != null):
 		questionText.text = currentQuestion.problem
+		
+	correctText.text = "Correct:   " + str(correct)
+	incorrectText.text =   "Incorrect: " + str(incorrect)
+	moneyText.text =       "Money:     " + str(money)
 
 func _generateQuestion():
 	if gm.qtype == gm.questionType.Q_FRACTION:
@@ -96,6 +125,10 @@ func _generatePreAlgQuestion():
 	var x = roundf(randf_range(1,16)) 
 	var y = roundf(randf_range(1,4))
 	var z = roundf(randf_range(1,16))
+	
+	#Y should always be even to make divisions simpler
+	if int(y) % 2 != 0:
+		y+=1
 	
 	#Either do xx + yy = zz
 	#or do     xx - yy = zz
