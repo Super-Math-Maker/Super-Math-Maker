@@ -1,8 +1,6 @@
-extends Node
+extends CharacterBody2D
 
 @onready var gm = get_node("/root/GameManager")
-@onready var cb = $CharacterBody2D
-@onready var area2d = $CharacterBody2D/Area2D
 
 var shouldWalkOffEdges = true
 var health = 1
@@ -12,7 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	area2d.connect("area_entered",_test)
 	pass # Replace with function body.
 
 func _test():
@@ -24,9 +21,9 @@ func _process(delta):
 		return
 
 	# Add the gravity.
-	if not cb.is_on_floor():
-		cb.velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta
 		
-	cb.velocity.x = walkSpeed * direction
+	velocity.x = walkSpeed * direction
 	
-	cb.move_and_slide()
+	move_and_slide()

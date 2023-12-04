@@ -6,22 +6,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cndvs"]
 size = Vector2(60, 50)
 
-[node name="SpringScene" type="Node2D"]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
-contact_monitor = true
+[node name="SpringScene" type="Area2D"]
 script = ExtResource("1_cgcs6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(-1, 5)
-shape = SubResource("RectangleShape2D_cndvs")
-one_way_collision = true
-debug_color = Color(0.972549, 0.12549, 0.278431, 0.419608)
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
 scale = Vector2(2, 2)
 texture = ExtResource("1_gm0qq")
 region_enabled = true
 region_rect = Rect2(64, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_cndvs")
+debug_color = Color(0.972549, 0.12549, 0.278431, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
