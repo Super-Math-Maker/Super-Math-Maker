@@ -1,19 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtp73e06naqmx"]
+[gd_scene load_steps=4 format=3 uid="uid://dtp73e06naqmx"]
 
+[ext_resource type="Script" path="res://Scenes/Assists/SpringScript.gd" id="1_cgcs6"]
 [ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="1_gm0qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cndvs"]
-size = Vector2(64, 52)
+size = Vector2(60, 50)
 
 [node name="SpringScene" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource("1_cgcs6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 4)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_cndvs")
+one_way_collision = true
+debug_color = Color(0.972549, 0.12549, 0.278431, 0.419608)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 position = Vector2(-1, -2)
 scale = Vector2(2, 2)
 texture = ExtResource("1_gm0qq")

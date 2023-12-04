@@ -4,15 +4,21 @@
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_setc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb4jl"]
-size = Vector2(64, 64)
+size = Vector2(66, 66)
 
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_setc7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_eb4jl")
-
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("1_f3ecc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_eb4jl")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_eb4jl")

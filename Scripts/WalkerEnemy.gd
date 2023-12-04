@@ -2,6 +2,7 @@ extends Node
 
 @onready var gm = get_node("/root/GameManager")
 @onready var cb = $CharacterBody2D
+@onready var area2d = $CharacterBody2D/Area2D
 
 var shouldWalkOffEdges = true
 var health = 1
@@ -11,8 +12,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	area2d.connect("area_entered",_test)
 	pass # Replace with function body.
 
+func _test():
+	print("enemy")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
