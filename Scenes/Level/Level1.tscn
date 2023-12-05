@@ -218,9 +218,9 @@ layer_0/tile_data = PackedInt32Array(1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0
 [node name="Player" parent="." instance=ExtResource("2_om02p")]
 position = Vector2(221, 559)
 
-[node name="WalkerEnemyScene" parent="." instance=ExtResource("3_tfa5t")]
+[node name="Walker" parent="." instance=ExtResource("3_tfa5t")]
 position = Vector2(1052, 509)
 
-[node name="WalkerEnemyScene2" parent="." instance=ExtResource("3_tfa5t")]
+[node name="Walker2" parent="." instance=ExtResource("3_tfa5t")]
 position = Vector2(430, 560)
 direction = 1

@@ -1,7 +1,9 @@
 extends Node2D
+@onready var gm = get_node("/root/GameManager")
 
 var dir = Vector2(0,0)
-var lifeTime = 10.0
+var lifeTime = 10 
+var hit = false
 
 func setDirection(newDir):
 	dir = newDir
@@ -10,10 +12,24 @@ func setDirection(newDir):
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if hit:
+		free()
+		return
+		
+	if gm.state != gm.gameState.STATE_GAMEPLAY:
+		return
+	position += Vector2(dir * delta * 1000,0)
+	
+	#auto delete
 	lifeTime -= delta
 	if lifeTime <= 0:
-		get_parent().remove_child(self)
+		free()
 	pass
+
+
+func _on_body_entered(body):
+	if body.name.find("Walker") != -1:
+		body.free()
+		hit = true
