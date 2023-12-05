@@ -32,27 +32,39 @@ Level Editor:
 		4) the rest of the system is set up so that it does not care what item you have selected.
 		
 	
-Quiz
-	Get Money for answering
 
-Assists
-	Springs (Functionality)
-	Figure out rest of them
-	
-Traps
-	Figure out what to do 
-	
-Level Editor
-	Rest of assits
-	
-Enemies
-	Flyer
-	Walker
-	Jumper
+EDITS TO SRS
+change: The game will output to a display with a resolution of 1280x720
+remove: An incorrect solution to a question will deduct points.
+change: ranged attacks will be able to be directed  left and right.
+change: The character will have the ability to use a ranged attack
+remove: Some levels will have secret alternative goals that can be found through exploration.
+remove teleporter from: Assists will consist of springs, teleporters, extra platforms, power-ups, etc..
 
-Player
-	Health
-	Attacks
-	
-Goal
-Multiple Levels
+CUTTING BOARD
+maybe cut: All movements by the character will be animated.
+
+The user will be able to choose between playing the game, changing the settings or quitting the application. 
+Points will be awarded for each correctly solved question, with difficult questions granting more points.
+The character will spawn with a certain amount of lives.
+Death will occur through contact with enemies and hazards on a level.
+
+Enemies will exist in each level of the game.
+Enemies will be able to move and attack.
+There will be various types of enemies that each behave differently.
+Enemies will change their behavior when in the presence of the character.
+
+Hazards will exist in each level of the game.
+Hazards will be static.
+
+Death in a level will decrease the life count by one.
+When the character dies with zero lives remaining, the game will return to the main menu.
+When the character dies with more than zero lives remaining, the game will return the character to the beginning of the same level.
+
+Lives will carry over between each completed level.
+A goal will exist in each level to signify that the character has completed the level.
+Assists will be able to be placed on the level by the user.
+Assists will consist of springs, teleporters, extra platforms, power-ups, etc..
+A point system will exist that contains a count of the number of points owned by the user.
+Points will be awarded on equation completion.
+A shop will be available to the user to spend points on assists and extra lives.
