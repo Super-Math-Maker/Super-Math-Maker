@@ -35,11 +35,13 @@ var currentLevel = null
 var player = null
 var qtype = questionType.Q_NONE
 var money = 0
+var moneyBeforeDeath = 0
 var placedAssists = []
 var lives = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	money = 100
 	changeState(gameState.STATE_MAIN_MENU)
 	pass # Replace with function body.
 
@@ -91,6 +93,7 @@ func endState():
 	elif state == gameState.STATE_MENU_PICK_QUESTION:
 		pass
 	elif state == gameState.STATE_ANSWER_QUESTION:
+		moneyBeforeDeath = money
 		pass
 	elif state == gameState.STATE_GAMEPLAY:
 		print("TODO END GAME. FREE RESOURCES")
@@ -132,3 +135,16 @@ func ImmediateLoadObject( path, parent ):
 	if parent == camera:
 		obj.position = Vector2(-640,-360)
 	return obj
+
+func resetLevel():
+	money = moneyBeforeDeath
+	camera.reparent(self)
+	currentLevel.queue_free()
+	currentLevel = null
+	for i in placedAssists:
+		i.queue_free()
+	placedAssists.clear()
+	state = -1
+	lives = 3
+	changeState(gameState.STATE_LEVEL_EDITOR)
+	pass

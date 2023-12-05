@@ -60,14 +60,15 @@ func _process(delta):
 	
 			
 func _buySpring():
-	if (gm.money < 4):
+	if (gm.money < prices[0]):
 		print("Can't afford Spring")
-	return
+		return
+	GameManager.money -= prices[0]
 	holdingItem = gm.ImmediateLoadObject(springScene,self)
 	
 func _buyLasergun():
-	if (gm.money < 4):
+	if (gm.money < prices[1]):
 		print("Can't afford Lasergun")
-	return
+	GameManager.money -= prices[1]
 	holdingItem = gm.ImmediateLoadObject(lasergunScene,self)
 	

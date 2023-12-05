@@ -36,6 +36,10 @@ func addLives(count):
 	gm.lives += count
 	livesLabel.text = "Lives: " + str(gm.lives)
 	
+	if GameManager.lives == 0:
+		GameManager.	resetLevel()
+		queue_free()
+	
 func _ready():
 	area2d.connect("area_entered",_hit)
 	remove_child(ammoLabel)
