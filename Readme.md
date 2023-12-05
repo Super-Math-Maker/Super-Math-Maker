@@ -46,7 +46,6 @@ maybe cut: All movements by the character will be animated.
 
 The user will be able to choose between playing the game, changing the settings or quitting the application. 
 Points will be awarded for each correctly solved question, with difficult questions granting more points.
-The character will spawn with a certain amount of lives.
 Death will occur through contact with enemies and hazards on a level.
 
 Enemies will exist in each level of the game.
@@ -61,7 +60,7 @@ Death in a level will decrease the life count by one.
 When the character dies with zero lives remaining, the game will return to the main menu.
 When the character dies with more than zero lives remaining, the game will return the character to the beginning of the same level.
 
-Lives will carry over between each completed level.
+Lives will carry over between each completed level. 
 A goal will exist in each level to signify that the character has completed the level.
 Assists will be able to be placed on the level by the user.
 Assists will consist of springs, teleporters, extra platforms, power-ups, etc..

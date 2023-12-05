@@ -36,6 +36,7 @@ var player = null
 var qtype = questionType.Q_NONE
 var money = 0
 var placedAssists = []
+var lives = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,11 +53,12 @@ func _process(delta):
 		
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
-	if Input.is_key_pressed(KEY_A) and just_pressed:
+	if Input.is_key_pressed(KEY_ESCAPE) and just_pressed:
 		if ( state == gameState.STATE_GAMEPLAY ):
 			pauseGame()
 		else:
 			unPauseGame()
+
 
 func changeState(newState):
 	if newState == state:

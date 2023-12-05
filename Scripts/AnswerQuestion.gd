@@ -13,7 +13,7 @@ var timeLeft = 0.0
 var currentQuestion = null
 var correct = 0
 var incorrect = 0
-var money = 0
+
 
 class Question:
 	var problem: String
@@ -25,7 +25,6 @@ func _ready():
 	timeLeft = MAX_ANSWER_TIME
 	currentQuestion = _generateQuestion()
 	correct =0 
-	money = 0
 	incorrect = 0
 	pass # Replace with function body.
 
@@ -41,6 +40,7 @@ func _process(delta):
 		if _checkAnswer() == true:
 			print("Correct")
 			correct += 1
+			gm.money += 5
 		else:
 			incorrect +=1 
 			print("Incorrect")
@@ -61,7 +61,7 @@ func _updateUI():
 		
 	correctText.text = "Correct:   " + str(correct)
 	incorrectText.text =   "Incorrect: " + str(incorrect)
-	moneyText.text =       "Money:     " + str(money)
+	moneyText.text =       "Money:     " + str(gm.money)
 
 func _generateQuestion():
 	if gm.qtype == gm.questionType.Q_FRACTION:
@@ -91,7 +91,7 @@ func _generateFractionQuestion():
 		var d = d1 * d2
 		q.answer = str(n) + "/" + str(d)
 	else:
-		q.problem = str(n1) + "/" + str(d1) + " % " + str(n2) + "/" + str(d2)
+		q.problem = str(n1) + "/" + str(d1) + " / " + str(n2) + "/" + str(d2)
 		var n = n1 * d2
 		var d = n2 * d1
 		q.answer = str(n) + "/" + str(d)

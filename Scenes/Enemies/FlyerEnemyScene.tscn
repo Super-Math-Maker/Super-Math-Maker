@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dathgpp03aahl"]
+
+[ext_resource type="Script" path="res://Scripts/WalkerEnemy.gd" id="1_3611d"]
+[ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="2_5t5x7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uki10"]
+size = Vector2(32, 32)
+
+[node name="Walker" type="CharacterBody2D"]
+script = ExtResource("1_3611d")
+
+[node name="WalkerCollider" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_uki10")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_5t5x7")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)

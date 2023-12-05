@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var laserScene = "res://Scenes/Laser.tscn"
 @onready var ammoLabel = $AmmoLabel
+@onready var livesLabel = $"Lives Label"
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -13,12 +14,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var shootDirection = 1
 var shootCooldown = 1.0
 var ammo = 0
-@onready var area2d = $Area2D
 
-func _ready():
-	area2d.connect("area_entered",_hit)
-	remove_child(ammoLabel)
-	pass
+
+@onready var area2d = $Area2D
 
 func _hit():
 	print("Collided: " + str(Time.get_datetime_string_from_system()))
@@ -33,6 +31,17 @@ func addAmmo(count):
 		add_child(ammoLabel)
 	else:
 		remove_child(ammoLabel)
+		
+func addLives(count):
+	gm.lives += count
+	livesLabel.text = "Lives: " + str(gm.lives)
+	
+func _ready():
+	area2d.connect("area_entered",_hit)
+	remove_child(ammoLabel)
+	addLives(0) #Update UI element
+	pass
+
 	
 func _physics_process(delta):
 	if gm.state != gm.gameState.STATE_GAMEPLAY:

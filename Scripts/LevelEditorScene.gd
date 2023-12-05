@@ -1,19 +1,31 @@
 extends Node2D
 
+class AssistButton:
+	var label : Label
+	var name : String
+	var price : int
+
 @onready var gm = get_node("/root/GameManager")
 @onready var itemButtons = [$Spring, $Item2, $Item3, $Item4, $Item5, $Item6]
+@onready var prices =      [    5  ,     5 ,    5  ,    5  ,    5  ,     5]
 @onready var playButton = $"Play Game"
-
+@onready var moneyLabel = $"Money Label"
 @onready var springScene = "res://Scenes/Assists/SpringScene.tscn"
 @onready var lasergunScene = "res://Scenes/Assists/LasergunScene.tscn"
 var holdingItem = null
+
+
+var buttons = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	holdingItem = null
 	playButton.pressed.connect(_playGame)
 	itemButtons[0].pressed.connect(_buySpring)
+	itemButtons[0].text = "Buy Spring: " + str(prices[0])
 	itemButtons[1].pressed.connect(_buyLasergun)
+	itemButtons[1].text = "Buy Lasergun: " + str(prices[1])
+	
 	pass # Replace with function body.
 
 func _playGame():
@@ -21,6 +33,7 @@ func _playGame():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	moneyLabel.text = "Money: " + str(GameManager.money)
 	if holdingItem == null:
 		return
 
@@ -43,10 +56,18 @@ func _process(delta):
 		remove_child(holdingItem)	
 		holdingItem = null
 		pass
+		
+	
 			
 func _buySpring():
+	if (gm.money < 4):
+		print("Can't afford Spring")
+	return
 	holdingItem = gm.ImmediateLoadObject(springScene,self)
 	
 func _buyLasergun():
+	if (gm.money < 4):
+		print("Can't afford Lasergun")
+	return
 	holdingItem = gm.ImmediateLoadObject(lasergunScene,self)
 	
