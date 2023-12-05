@@ -32,7 +32,6 @@ Level Editor:
 		4) the rest of the system is set up so that it does not care what item you have selected.
 		
 	
-TODO:
 Quiz
 	Get Money for answering
 

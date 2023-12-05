@@ -3,7 +3,6 @@ extends Node2D
 
 var dir = Vector2(0,0)
 var lifeTime = 10 
-var hit = false
 
 func setDirection(newDir):
 	dir = newDir
@@ -14,10 +13,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if hit:
-		free()
-		return
-		
 	if gm.state != gm.gameState.STATE_GAMEPLAY:
 		return
 	position += Vector2(dir * delta * 1000,0)
@@ -31,5 +26,5 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name.find("Walker") != -1:
-		body.free()
-		hit = true
+		body.queue_free()
+		queue_free()

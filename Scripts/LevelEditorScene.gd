@@ -5,7 +5,7 @@ extends Node2D
 @onready var playButton = $"Play Game"
 
 @onready var springScene = "res://Scenes/Assists/SpringScene.tscn"
-
+@onready var lasergunScene = "res://Scenes/Assists/LasergunScene.tscn"
 var holdingItem = null
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +13,7 @@ func _ready():
 	holdingItem = null
 	playButton.pressed.connect(_playGame)
 	itemButtons[0].pressed.connect(_buySpring)
+	itemButtons[1].pressed.connect(_buyLasergun)
 	pass # Replace with function body.
 
 func _playGame():
@@ -45,4 +46,7 @@ func _process(delta):
 			
 func _buySpring():
 	holdingItem = gm.ImmediateLoadObject(springScene,self)
-	pass
+	
+func _buyLasergun():
+	holdingItem = gm.ImmediateLoadObject(lasergunScene,self)
+	

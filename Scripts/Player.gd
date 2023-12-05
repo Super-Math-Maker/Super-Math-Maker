@@ -3,7 +3,8 @@ extends CharacterBody2D
 @onready var camera = gm.camera
 
 @onready var laserScene = "res://Scenes/Laser.tscn"
- 
+@onready var ammoLabel = $AmmoLabel
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var wallJumpsLeft = 3
@@ -11,16 +12,28 @@ var wallJumpsLeft = 3
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var shootDirection = 1
 var shootCooldown = 1.0
+var ammo = 0
 @onready var area2d = $Area2D
 
 func _ready():
 	area2d.connect("area_entered",_hit)
+	remove_child(ammoLabel)
 	pass
 
 func _hit():
 	print("Collided: " + str(Time.get_datetime_string_from_system()))
 	pass
-
+	
+func addAmmo(count):
+	#if this gives us ammo 
+	ammo += count
+	
+	if ammo > 0:
+		ammoLabel.text = "Ammo: " + str(ammo)
+		add_child(ammoLabel)
+	else:
+		remove_child(ammoLabel)
+	
 func _physics_process(delta):
 	if gm.state != gm.gameState.STATE_GAMEPLAY:
 		return
@@ -64,10 +77,11 @@ func _physics_process(delta):
 		velocity.x += move_toward(velocity.x, 0, SPEED)
 
 	#Shoot Bullet
-	if Input.is_key_pressed(KEY_CTRL) and shootCooldown < 0:
+	if Input.is_key_pressed(KEY_CTRL) and shootCooldown < 0 and ammo > 0:
 		shootCooldown = 1.0
 		var laser = gm.ImmediateLoadObject(laserScene,get_tree().get_root())
 		laser.position = position
 		laser.setDirection(shootDirection)
+		addAmmo(-1)
 		
 	move_and_slide()
