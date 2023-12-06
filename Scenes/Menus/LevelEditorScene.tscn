@@ -24,7 +24,7 @@ offset_top = 258.0
 offset_right = 130.0
 offset_bottom = 321.0
 theme_override_font_sizes/font_size = 40
-text = "Item 3"
+text = "Extra Life: $$"
 
 [node name="Item4" type="Button" parent="."]
 offset_top = 375.0

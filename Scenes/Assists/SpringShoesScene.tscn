@@ -1,23 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfckd2y7hy25w"]
+[gd_scene load_steps=4 format=3 uid="uid://dtp73e06naqmx"]
 
-[ext_resource type="Script" path="res://Scripts/SpringScript.gd" id="1_aefps"]
-[ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="1_gm0qq"]
+[ext_resource type="Script" path="res://scripts/SpringShoeScript.gd" id="1_8l7s5"]
+[ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="2_6hvn2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cndvs"]
-size = Vector2(60, 50)
+size = Vector2(62, 54)
 
 [node name="SpringShoesScene" type="Area2D"]
-script = ExtResource("1_aefps")
+script = ExtResource("1_8l7s5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
 scale = Vector2(2, 2)
-texture = ExtResource("1_gm0qq")
+texture = ExtResource("2_6hvn2")
 region_enabled = true
-region_rect = Rect2(64, 0, 32, 32)
+region_rect = Rect2(289, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5)
+position = Vector2(-3, 2)
 shape = SubResource("RectangleShape2D_cndvs")
 debug_color = Color(0.972549, 0.12549, 0.278431, 0.419608)
 

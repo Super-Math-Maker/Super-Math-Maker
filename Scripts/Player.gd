@@ -7,13 +7,15 @@ extends CharacterBody2D
 @onready var livesLabel = $"Lives Label"
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var jumpHeightNormal = -400.0
+var jumpHeightSpringBoots = -800.0
 var wallJumpsLeft = 3
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var shootDirection = 1
 var shootCooldown = 1.0
 var ammo = 0
+var hasSpringShoes = false
 
 
 @onready var area2d = $Area2D
@@ -71,16 +73,20 @@ func _physics_process(delta):
 	
 	var lastHit = get_last_slide_collision()
 
+	var jumpHeight = jumpHeightNormal
+	if hasSpringShoes:
+		jumpHeight = jumpHeightSpringBoots
+		
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept"):
 		#Normal Jump
 		if is_on_floor():
-			velocity.y = JUMP_VELOCITY
+			velocity.y = jumpHeight
 		#Wall jump
 		elif wallJumpsLeft > 0:
 			var hits = get_slide_collision_count()
 			if hits > 0:
-				velocity.y = JUMP_VELOCITY
+				velocity.y = jumpHeight
 				velocity.x = get_last_slide_collision().get_normal().x * SPEED * 1
 				wallJumpsLeft -= 1
 	
@@ -98,3 +104,6 @@ func _physics_process(delta):
 		addAmmo(-1)
 		
 	move_and_slide()
+
+func addSpringShoes():
+	hasSpringShoes = true

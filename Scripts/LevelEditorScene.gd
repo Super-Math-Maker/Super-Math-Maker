@@ -7,11 +7,12 @@ class AssistButton:
 
 @onready var gm = get_node("/root/GameManager")
 @onready var itemButtons = [$Spring, $Item2, $Item3, $Item4, $Item5, $Item6]
-@onready var prices =      [    5  ,     5 ,    5  ,    5  ,    5  ,     5]
+@onready var prices =      [    5  ,     5 ,    15  ,    25  ,    5  ,     5]
 @onready var playButton = $"Play Game"
 @onready var moneyLabel = $"Money Label"
 @onready var springScene = "res://Scenes/Assists/SpringScene.tscn"
 @onready var lasergunScene = "res://Scenes/Assists/LasergunScene.tscn"
+@onready var springBootsScene = "res://Scenes/Assists/SpringShoesScene.tscn"
 var holdingItem = null
 
 
@@ -19,14 +20,20 @@ var buttons = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	holdingItem = null
 	playButton.pressed.connect(_playGame)
 	itemButtons[0].pressed.connect(_buySpring)
 	itemButtons[0].text = "Buy Spring: " + str(prices[0])
+	
 	itemButtons[1].pressed.connect(_buyLasergun)
 	itemButtons[1].text = "Buy Lasergun: " + str(prices[1])
 	
-	pass # Replace with function body.
+	itemButtons[2].pressed.connect(_buyLife)
+	itemButtons[2].text = "Buy Extra Life: " + str(prices[2])
+
+	itemButtons[3].pressed.connect(_buySpringShoes)
+	itemButtons[3].text = "Buy Spring Shoes: " + str(prices[3])
 
 func _playGame():
 	gm.changeState(gm.gameState.STATE_GAMEPLAY)
@@ -57,8 +64,13 @@ func _process(delta):
 		holdingItem = null
 		pass
 		
-	
-			
+func _buyLife():
+	if gm.money < prices[2]:
+		print("Cant afford extra life")
+		return
+	gm.money -= prices[2]
+	GameManager.player.addLives(1)
+		
 func _buySpring():
 	if (gm.money < prices[0]):
 		print("Can't afford Spring")
@@ -72,3 +84,8 @@ func _buyLasergun():
 	GameManager.money -= prices[1]
 	holdingItem = gm.ImmediateLoadObject(lasergunScene,self)
 	
+func _buySpringShoes():
+	if (gm.money < prices[3]):
+		print("Can't afford Lasergun")
+	GameManager.money -= prices[3]
+	holdingItem = gm.ImmediateLoadObject(springBootsScene,self)
