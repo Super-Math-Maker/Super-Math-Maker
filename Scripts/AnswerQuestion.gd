@@ -9,7 +9,7 @@ extends Node
 @onready var moneyText = %"MoneyLabel"
 
 const MAX_ANSWER_TIME = 0
-var timeLeft = 0.0
+var timeLeft = 00.0
 var currentQuestion = null
 var correct = 0
 var incorrect = 0
@@ -31,6 +31,17 @@ func _ready():
 func _checkAnswer():
 	var yours = textBox.text.strip_edges(true,true)
 	var ansr = currentQuestion.answer.strip_edges(true,true)
+	if gm.qtype == gm.questionType.Q_FRACTION:
+		ansr = float(ansr)
+		var yourAns = yours.split("/")
+		if yourAns.size() != 2:
+			print("incorrect format")
+			return false
+		var yourNum = int(yourAns[0])
+		var yourDen = int(yourAns[1])
+		yourAns = float(yourNum) / yourDen
+		# print("yours: ", yourAns, "ans: ", ansr)
+		return abs(yourAns - ansr) <= .001
 	return yours == ansr
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -89,12 +100,12 @@ func _generateFractionQuestion():
 		q.problem = str(n1) + "/" + str(d1) + " * " + str(n2) + "/" + str(d2)
 		var n = n1 * n2
 		var d = d1 * d2
-		q.answer = str(n) + "/" + str(d)
+		q.answer = str(float(n) / d)
 	else:
 		q.problem = str(n1) + "/" + str(d1) + " / " + str(n2) + "/" + str(d2)
 		var n = n1 * d2
 		var d = n2 * d1
-		q.answer = str(n) + "/" + str(d)
+		q.answer = str(float(n) / d)
 	
 	return q
 	
