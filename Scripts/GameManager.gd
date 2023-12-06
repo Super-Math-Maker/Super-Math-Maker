@@ -87,6 +87,7 @@ func beginState(newstate):
 func endState():
 	if (currentMenuObj):
 		camera.remove_child(currentMenuObj)
+		currentMenuObj.queue_free()
 		currentMenuObj = null
 	if state == gameState.STATE_MAIN_MENU:
 		pass
@@ -142,7 +143,9 @@ func resetLevel():
 	currentLevel.queue_free()
 	currentLevel = null
 	for i in placedAssists:
-		i.queue_free()
+		if i != null:
+			i.queue_free()
+			
 	placedAssists.clear()
 	state = -1
 	lives = 3

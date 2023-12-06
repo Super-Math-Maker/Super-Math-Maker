@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsmwirtc35242"]
+
+[ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="2_o43ob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cndvs"]
+size = Vector2(64, 64)
+
+[node name="Platform Scene" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_cndvs")
+debug_color = Color(0.972549, 0.12549, 0.278431, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(2, 2)
+texture = ExtResource("2_o43ob")
+region_enabled = true
+region_rect = Rect2(320, 0, 32, 32)

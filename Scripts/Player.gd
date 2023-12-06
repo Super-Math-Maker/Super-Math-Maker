@@ -16,13 +16,6 @@ var shootDirection = 1
 var shootCooldown = 1.0
 var ammo = 0
 var hasSpringShoes = false
-
-
-@onready var area2d = $Area2D
-
-func _hit():
-	print("Collided: " + str(Time.get_datetime_string_from_system()))
-	pass
 	
 func addAmmo(count):
 	#if this gives us ammo 
@@ -43,7 +36,6 @@ func addLives(count):
 		queue_free()
 	
 func _ready():
-	area2d.connect("area_entered",_hit)
 	remove_child(ammoLabel)
 	addLives(0) #Update UI element
 	pass

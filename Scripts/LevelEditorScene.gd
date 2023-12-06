@@ -13,6 +13,8 @@ class AssistButton:
 @onready var springScene = "res://Scenes/Assists/SpringScene.tscn"
 @onready var lasergunScene = "res://Scenes/Assists/LasergunScene.tscn"
 @onready var springBootsScene = "res://Scenes/Assists/SpringShoesScene.tscn"
+@onready var platformScene = "res://Scenes/Assists/PlatformScene.tscn"
+
 var holdingItem = null
 
 
@@ -35,6 +37,10 @@ func _ready():
 	itemButtons[3].pressed.connect(_buySpringShoes)
 	itemButtons[3].text = "Buy Spring Shoes: " + str(prices[3])
 
+	itemButtons[4].pressed.connect(_buyPlatform)
+	itemButtons[4].text = "Buy Platform: " + str(prices[4])
+
+
 func _playGame():
 	gm.changeState(gm.gameState.STATE_GAMEPLAY)
 
@@ -50,7 +56,6 @@ func _process(delta):
 	mp.y = int(mp.y) / int(32)
 	mp.x *= 32
 	mp.y *= 32
-	mp.y -= 16 #Offset sprite center so ground touches bottom 
 	holdingItem.position = mp
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		holdingItem.reparent(gm)
@@ -89,3 +94,10 @@ func _buySpringShoes():
 		print("Can't afford Lasergun")
 	GameManager.money -= prices[3]
 	holdingItem = gm.ImmediateLoadObject(springBootsScene,self)
+
+
+func _buyPlatform():
+	if (gm.money < prices[4]):
+		print("Can't afford Platform")
+	GameManager.money -= prices[4]
+	holdingItem = gm.ImmediateLoadObject(platformScene,self)

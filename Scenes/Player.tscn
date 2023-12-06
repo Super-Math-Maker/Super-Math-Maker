@@ -15,12 +15,6 @@ texture = ExtResource("1_f3ecc")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bwu7f")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_bwu7f")
-
 [node name="AmmoLabel" type="Label" parent="."]
 offset_left = -601.0
 offset_top = 246.0
