@@ -28,7 +28,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		GameManager.player.addLives(-1)
+		GameManager.player.hitEnemy()
 		
 		#bounce off 		
 		var hitdir = (GameManager.player.position - position).normalized()

@@ -14,31 +14,28 @@ class AssistButton:
 @onready var lasergunScene = "res://Scenes/Assists/LasergunScene.tscn"
 @onready var springBootsScene = "res://Scenes/Assists/SpringShoesScene.tscn"
 @onready var platformScene = "res://Scenes/Assists/PlatformScene.tscn"
-
+@onready var energyDrinkScene =  "res://Scenes/Assists/EnergyDrinkScene.tscn"
 var holdingItem = null
 
 
-var buttons = []
+var names = ["Spring","Lasergun","Extra Life","Spring Shoes","Platform","Energy Drink"]
 
-# Called when the node enters the scene tree for the first time.
+# NOTE TO DALY: Godot as of this version does not allow you to pass paramters
+# when you connect buttons to events. as such each button connection has to
+# be a seperate function that does almost the same thing. 
 func _ready():
 
 	holdingItem = null
 	playButton.pressed.connect(_playGame)
-	itemButtons[0].pressed.connect(_buySpring)
-	itemButtons[0].text = "Buy Spring: " + str(prices[0])
-	
+	itemButtons[0].pressed.connect(_buySpring,22)
 	itemButtons[1].pressed.connect(_buyLasergun)
-	itemButtons[1].text = "Buy Lasergun: " + str(prices[1])
-	
 	itemButtons[2].pressed.connect(_buyLife)
-	itemButtons[2].text = "Buy Extra Life: " + str(prices[2])
-
 	itemButtons[3].pressed.connect(_buySpringShoes)
-	itemButtons[3].text = "Buy Spring Shoes: " + str(prices[3])
-
 	itemButtons[4].pressed.connect(_buyPlatform)
-	itemButtons[4].text = "Buy Platform: " + str(prices[4])
+	itemButtons[5].pressed.connect(_buyEnergyDrink)
+
+	for i in names.size():
+		itemButtons[i].text = "Buy " + names[i] + ": " + str(prices[i]) + "$" 
 
 
 func _playGame():
@@ -75,29 +72,40 @@ func _buyLife():
 		return
 	gm.money -= prices[2]
 	GameManager.player.addLives(1)
-		
-func _buySpring():
+
+func _buySpring(test):
 	if (gm.money < prices[0]):
 		print("Can't afford Spring")
 		return
 	GameManager.money -= prices[0]
+	print(test)
 	holdingItem = gm.ImmediateLoadObject(springScene,self)
+	
 	
 func _buyLasergun():
 	if (gm.money < prices[1]):
 		print("Can't afford Lasergun")
+		return
 	GameManager.money -= prices[1]
 	holdingItem = gm.ImmediateLoadObject(lasergunScene,self)
 	
 func _buySpringShoes():
 	if (gm.money < prices[3]):
 		print("Can't afford Lasergun")
+		return
 	GameManager.money -= prices[3]
 	holdingItem = gm.ImmediateLoadObject(springBootsScene,self)
-
 
 func _buyPlatform():
 	if (gm.money < prices[4]):
 		print("Can't afford Platform")
+		return
 	GameManager.money -= prices[4]
 	holdingItem = gm.ImmediateLoadObject(platformScene,self)
+
+func _buyEnergyDrink():
+	if (gm.money < prices[5]):
+		print("Can't afford Platform")
+		return
+	GameManager.money -= prices[5]
+	holdingItem = gm.ImmediateLoadObject(energyDrinkScene,self)

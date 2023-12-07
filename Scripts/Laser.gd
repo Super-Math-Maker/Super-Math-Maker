@@ -25,6 +25,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.name.find("Walker") != -1:
+	if (body.name.find("Walker") != -1) or ( body.name.find("Flyer") != -1 ):
 		body.queue_free()
 		queue_free()

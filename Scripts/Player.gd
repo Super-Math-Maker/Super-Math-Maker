@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var laserScene = "res://Scenes/Laser.tscn"
 @onready var ammoLabel = $AmmoLabel
 @onready var livesLabel = $"Lives Label"
+@onready var energy = 0
 
 const SPEED = 300.0
 var jumpHeightNormal = -400.0
@@ -16,6 +17,7 @@ var shootDirection = 1
 var shootCooldown = 1.0
 var ammo = 0
 var hasSpringShoes = false
+var invincibilityTime = 0
 	
 func addAmmo(count):
 	#if this gives us ammo 
@@ -42,6 +44,8 @@ func _ready():
 
 	
 func _physics_process(delta):
+	invincibilityTime -= delta
+	
 	if gm.state != gm.gameState.STATE_GAMEPLAY:
 		return
 	camera.reparent(self) #todo fix needing this here, should only have to call once
@@ -83,7 +87,7 @@ func _physics_process(delta):
 				wallJumpsLeft -= 1
 	
 	if direction:
-		velocity.x += direction * SPEED
+		velocity.x += direction * (SPEED + energy * 50)
 	else:
 		velocity.x += move_toward(velocity.x, 0, SPEED)
 
@@ -97,5 +101,13 @@ func _physics_process(delta):
 		
 	move_and_slide()
 
+func hitEnemy():
+	if invincibilityTime <= 0:
+		addLives(-1)
+		invincibilityTime = 1
+
 func addSpringShoes():
 	hasSpringShoes = true
+
+func addEnergy():
+	energy += 1
