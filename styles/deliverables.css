@@ -1,0 +1,177 @@
+img{
+    width: 100px;
+    height: 100px;
+    margin-left: 40px;
+    margin-right: 100px;
+    object-fit: contain;
+}
+a.IButton{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+}
+a.IButton:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+a.TButton{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+}
+a.TButton:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.Title{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 32px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    border-style: ridge;
+    border-color: black;
+    background-color: rgb(243, 219, 219);
+}
+a.DButton{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+}
+a.DButton:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+a.srs{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+}
+a.srs:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+a.requirements{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+a.requirements:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+a.usecase{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+}
+a.usecase:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+a.class{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+}
+a.class:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+a.sequence{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    background-color: rgb(250, 222, 212);
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    text-decoration: none;
+    color: initial;
+    transition-duration: 5ms;
+}
+a.sequence:hover{
+    background-color: rgb(255, 205, 213);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.Links{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 32px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    border-style: ridge;
+    border-color: black;
+    background-color: rgb(243, 219, 219);
+    display: inline-block;
+}
+body{
+    text-align: center;
+    background-image: url("tester-background.jpg");
+}
