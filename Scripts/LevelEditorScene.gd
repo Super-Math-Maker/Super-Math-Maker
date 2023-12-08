@@ -27,7 +27,7 @@ func _ready():
 
 	holdingItem = null
 	playButton.pressed.connect(_playGame)
-	itemButtons[0].pressed.connect(_buySpring,22)
+	itemButtons[0].pressed.connect(_buySpring)
 	itemButtons[1].pressed.connect(_buyLasergun)
 	itemButtons[2].pressed.connect(_buyLife)
 	itemButtons[3].pressed.connect(_buySpringShoes)
@@ -73,12 +73,11 @@ func _buyLife():
 	gm.money -= prices[2]
 	GameManager.player.addLives(1)
 
-func _buySpring(test):
+func _buySpring():
 	if (gm.money < prices[0]):
 		print("Can't afford Spring")
 		return
 	GameManager.money -= prices[0]
-	print(test)
 	holdingItem = gm.ImmediateLoadObject(springScene,self)
 	
 	
