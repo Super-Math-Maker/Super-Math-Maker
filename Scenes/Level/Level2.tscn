@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ct0cajjjdf7ia"]
+[gd_scene load_steps=11 format=3 uid="uid://cy02vl60i6glx"]
 
 [ext_resource type="Texture2D" uid="uid://ctci77ohqukxt" path="res://Images/Tilemap.png" id="1_la5ly"]
 [ext_resource type="PackedScene" uid="uid://2nosrf6gg5da" path="res://Scenes/Player.tscn" id="2_jnrb5"]
 [ext_resource type="PackedScene" uid="uid://dfemewhpgj88i" path="res://Scenes/Hazard/LavaScene.tscn" id="3_mxgn3"]
 [ext_resource type="PackedScene" uid="uid://dathgpp03aahl" path="res://Scenes/Enemies/FlyerEnemyScene.tscn" id="4_k35b8"]
 [ext_resource type="PackedScene" uid="uid://6xq0ckuspxov" path="res://Scenes/Enemies/WalkerEnemyScene.tscn" id="5_cjort"]
-[ext_resource type="PackedScene" uid="uid://btwivkjhiswve" path="res://Scenes/Goal.tscn" id="6_8sxha"]
+[ext_resource type="PackedScene" uid="uid://ccp80ni304g83" path="res://Scenes/Goal.tscn" id="6_8sxha"]
 [ext_resource type="PackedScene" path="res://Scenes/Enemies/JumperEnemyScene.tscn" id="6_12duw"]
 [ext_resource type="Script" path="res://Scripts/GoalScript.gd" id="7_6hlyy"]
 

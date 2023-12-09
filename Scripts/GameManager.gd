@@ -6,7 +6,8 @@ extends Node
 @onready var levelEditorScene = "res://Scenes/Menus/LevelEditorScene.tscn"
 @onready var pauseMenuScene = "res://Scenes/Menus/Pause Menu.tscn"
 
-@onready var level1Scene = "res://Scenes/Level/Level1.tscn"
+@onready var levelList = ["res://Scenes/Level/Level1.tscn", "res://Scenes/Level/Level2.tscn", "res://Scenes/Level/Level3.tscn"]
+
 @onready var playerScene = "res://Scenes/Player.tscn"
 @onready var camera = $Camera2D
 
@@ -32,6 +33,7 @@ enum questionType{
 var state = gameState.STATE_NONE
 var currentMenuObj = null
 var currentLevel = null
+var currentLevelPtr = 0
 var player = null
 var qtype = questionType.Q_NONE
 var money = 0
@@ -45,13 +47,13 @@ func _ready():
 	changeState(gameState.STATE_MAIN_MENU)
 	pass # Replace with function body.
 
-#Maybe this should be in the editor class but may be neater to keep here
+# Maybe this should be in the editor class but may be neater to keep here
 func _process(delta):
 	if state == gameState.STATE_LEVEL_EDITOR:
 		var directionx = Input.get_axis("ui_left", "ui_right")
 		var directiony = Input.get_axis("ui_up", "ui_down")
 		var CAM_SPEED = 500
-		camera.position += Vector2(directionx,directiony) * CAM_SPEED * delta		
+		camera.position += Vector2(directionx,directiony) * CAM_SPEED * delta
 		
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
@@ -101,8 +103,8 @@ func endState():
 		pass
 		
 func _startLevelEditor():
-	currentLevel = ImmediateLoadObject(level1Scene, self)
-	currentMenuObj = ImmediateLoadObject(levelEditorScene,camera)
+	currentLevel = ImmediateLoadObject(levelList[currentLevelPtr], self)
+	currentMenuObj = ImmediateLoadObject(levelEditorScene, camera)
 	player = currentLevel.find_child("Player")
 	pass
 	
@@ -138,10 +140,11 @@ func ImmediateLoadObject( path, parent ):
 	return obj
 
 func resetLevel():
-	money = moneyBeforeDeath
+	money = max(0, moneyBeforeDeath - 50)
 	camera.reparent(self)
 	currentLevel.queue_free()
 	currentLevel = null
+
 	for i in placedAssists:
 		if i != null:
 			i.queue_free()
@@ -151,3 +154,22 @@ func resetLevel():
 	lives = 3
 	changeState(gameState.STATE_LEVEL_EDITOR)
 	pass
+	
+func nextLevel():
+	camera.reparent(self)
+	currentLevel.queue_free()
+	currentLevel = null
+	
+	for i in placedAssists:
+		if i != null:
+			i.queue_free()
+	
+	state = -1
+	currentLevelPtr += 1
+	
+	if (currentLevelPtr == levelList.size()):
+		currentLevelPtr = 0
+		money += 100
+		changeState(gameState.STATE_MAIN_MENU)
+	else:
+		changeState(gameState.STATE_LEVEL_EDITOR)

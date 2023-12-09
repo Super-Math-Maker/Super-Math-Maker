@@ -29,7 +29,6 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "Player":
 		GameManager.player.hitEnemy()
-		
 		#bounce off 		
 		var hitdir = (GameManager.player.position - position).normalized()
 		GameManager.player.velocity.y = -500

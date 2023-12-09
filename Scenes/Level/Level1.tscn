@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfemewhpgj88i" path="res://Scenes/Hazard/LavaScene.tscn" id="4_3axt3"]
 [ext_resource type="PackedScene" uid="uid://dathgpp03aahl" path="res://Scenes/Enemies/FlyerEnemyScene.tscn" id="5_olq11"]
 [ext_resource type="PackedScene" path="res://Scenes/Enemies/JumperEnemyScene.tscn" id="6_8bhhk"]
-[ext_resource type="PackedScene" uid="uid://btwivkjhiswve" path="res://Scenes/Goal.tscn" id="6_d4m4d"]
+[ext_resource type="PackedScene" uid="uid://ccp80ni304g83" path="res://Scenes/Goal.tscn" id="6_d4m4d"]
 [ext_resource type="Script" path="res://Scripts/GoalScript.gd" id="7_qwon7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lykbg"]
