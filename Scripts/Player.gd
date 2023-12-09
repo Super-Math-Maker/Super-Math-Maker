@@ -18,7 +18,7 @@ var shootCooldown = 1.0
 var ammo = 0
 var hasSpringShoes = false
 var invincibilityTime = 0
-	
+
 func addAmmo(count):
 	#if this gives us ammo 
 	ammo += count
@@ -34,7 +34,7 @@ func addLives(count):
 	livesLabel.text = "Lives: " + str(gm.lives)
 	
 	if GameManager.lives == 0:
-		GameManager.	resetLevel()
+		GameManager.resetLevel()
 		queue_free()
 	
 func _ready():
@@ -44,6 +44,10 @@ func _ready():
 
 	
 func _physics_process(delta):
+	print(position.y)
+	if position.y > 2000:
+		addLives(-GameManager.lives)
+	
 	invincibilityTime -= delta
 	
 	if gm.state != gm.gameState.STATE_GAMEPLAY:

@@ -172,4 +172,4 @@ func nextLevel():
 		money += 100
 		changeState(gameState.STATE_MAIN_MENU)
 	else:
-		changeState(gameState.STATE_LEVEL_EDITOR)
+		changeState(gameState.STATE_ANSWER_QUESTION)
