@@ -6,8 +6,10 @@ extends Node
 @onready var levelEditorScene = "res://Scenes/Menus/LevelEditorScene.tscn"
 @onready var pauseMenuScene = "res://Scenes/Menus/Pause Menu.tscn"
 
-@onready var levelList = ["res://Scenes/Level/Level1.tscn", "res://Scenes/Level/Level2.tscn", "res://Scenes/Level/Level3.tscn"]
-
+@onready var levelList = [
+"res://Scenes/Level/Level1.tscn",
+"res://Scenes/Level/Level2.tscn",
+"res://Scenes/Level/Level3.tscn"]
 @onready var playerScene = "res://Scenes/Player.tscn"
 @onready var camera = $Camera2D
 
