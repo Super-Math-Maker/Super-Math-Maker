@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if GameManager.state != GameManager.gameState.STATE_GAMEPLAY:
 		return
 	#make sure on screen
@@ -26,10 +26,7 @@ func _process(delta):
 	
 	velocity.x = direction * speed
 	
-	if !is_on_floor():
-		velocity.y += gravity * delta
-	else:
-		velocity.y = 0
+	velocity.y += gravity * delta
 		
 	move_and_slide()
 		
