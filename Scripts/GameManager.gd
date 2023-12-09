@@ -45,7 +45,7 @@ var lives = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	money = 100
+	money = 25
 	changeState(gameState.STATE_MAIN_MENU)
 	pass # Replace with function body.
 
@@ -171,7 +171,7 @@ func nextLevel():
 	
 	if (currentLevelPtr == levelList.size()):
 		currentLevelPtr = 0
-		money += 100
+		money += 25
 		changeState(gameState.STATE_MAIN_MENU)
 	else:
 		changeState(gameState.STATE_ANSWER_QUESTION)
