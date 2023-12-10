@@ -24,9 +24,8 @@ class Question:
 func _ready():
 	timeLeft = MAX_ANSWER_TIME
 	currentQuestion = _generateQuestion()
-	correct =0 
+	correct = 0
 	incorrect = 0
-	pass # Replace with function body.
 
 func _checkAnswer():
 	var yours = textBox.text.strip_edges(true,true)

@@ -142,7 +142,7 @@ func ImmediateLoadObject( path, parent ):
 	return obj
 
 func resetLevel():
-	money = max(0, moneyBeforeDeath - 50)
+	money = moneyBeforeDeath
 	camera.reparent(self)
 	currentLevel.queue_free()
 	currentLevel = null
