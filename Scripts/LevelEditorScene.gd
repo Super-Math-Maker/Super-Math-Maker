@@ -16,7 +16,7 @@ class AssistButton:
 @onready var platformScene = "res://Scenes/Assists/PlatformScene.tscn"
 @onready var energyDrinkScene =  "res://Scenes/Assists/EnergyDrinkScene.tscn"
 var holdingItem = null
-
+var itemPrice = 0
 
 var names = ["Spring","Lasergun","Extra Life","Spring Shoes","Platform","Energy Drink"]
 
@@ -64,6 +64,7 @@ func _process(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		remove_child(holdingItem)	
 		holdingItem = null
+		GameManager.money += itemPrice
 		pass
 		
 func _buyLife():
@@ -71,6 +72,7 @@ func _buyLife():
 		print("Cant afford extra life")
 		return
 	gm.money -= prices[2]
+	itemPrice  = prices[2]
 	GameManager.player.addLives(1)
 
 func _buySpring():
@@ -78,6 +80,7 @@ func _buySpring():
 		print("Can't afford Spring")
 		return
 	GameManager.money -= prices[0]
+	itemPrice  = prices[0]
 	holdingItem = gm.ImmediateLoadObject(springScene,self)
 	
 	
@@ -86,6 +89,7 @@ func _buyLasergun():
 		print("Can't afford Lasergun")
 		return
 	GameManager.money -= prices[1]
+	itemPrice  = prices[1]
 	holdingItem = gm.ImmediateLoadObject(lasergunScene,self)
 	
 func _buySpringShoes():
@@ -93,6 +97,7 @@ func _buySpringShoes():
 		print("Can't afford Lasergun")
 		return
 	GameManager.money -= prices[3]
+	itemPrice  = prices[3]	
 	holdingItem = gm.ImmediateLoadObject(springBootsScene,self)
 
 func _buyPlatform():
@@ -100,6 +105,7 @@ func _buyPlatform():
 		print("Can't afford Platform")
 		return
 	GameManager.money -= prices[4]
+	itemPrice  = prices[4]
 	holdingItem = gm.ImmediateLoadObject(platformScene,self)
 
 func _buyEnergyDrink():
@@ -107,4 +113,5 @@ func _buyEnergyDrink():
 		print("Can't afford Platform")
 		return
 	GameManager.money -= prices[5]
+	itemPrice  = prices[5]	
 	holdingItem = gm.ImmediateLoadObject(energyDrinkScene,self)
