@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var livesLabel = $"Lives Label"
 @onready var energy = 0
 
+@onready var normalSprite = preload("res://Images/player.png")
+@onready var hurtSprite = preload("res://Images/playerhurt.png")
+
 const SPEED = 300.0
 var jumpHeightNormal = -400.0
 var jumpHeightSpringBoots = -800.0
@@ -44,14 +47,18 @@ func _ready():
 
 	
 func _physics_process(delta):
-	print(position.y)
+	if gm.state != gm.gameState.STATE_GAMEPLAY:
+		return
+	
 	if position.y > 2000:
 		addLives(-GameManager.lives)
 	
 	invincibilityTime -= delta
-	
-	if gm.state != gm.gameState.STATE_GAMEPLAY:
-		return
+	if invincibilityTime > 0:
+		$Sprite2D.texture = hurtSprite
+	else:
+		$Sprite2D.texture = normalSprite
+		
 	camera.reparent(self) #todo fix needing this here, should only have to call once
 	
 	shootCooldown -= delta
