@@ -20,11 +20,19 @@ func _process(delta):
 	#auto delete
 	lifeTime -= delta
 	if lifeTime <= 0:
-		free()
+		queue_free()
 	pass
 
 
 func _on_body_entered(body):
-	if (body.name.find("Walker") != -1) or ( body.name.find("Flyer") != -1 ):
+	print(body.name)
+	if body.name.find("Jumper") != -1:
 		body.queue_free()
+		queue_free()
+
+
+func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	var name = area.owner.name
+	if name.find("Jumper") != -1 or name.find("Flyer") != -1 or name.find("Walker") != -1:
+		area.owner.queue_free()
 		queue_free()

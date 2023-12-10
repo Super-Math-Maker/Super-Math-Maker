@@ -12,4 +12,3 @@ func _physics_process(delta):
 		var v = (GameManager.player.position.y - get_parent().position.y)
 		if v < -10:
 			get_parent().velocity.y = -400
-	print(str(get_parent().velocity.y))

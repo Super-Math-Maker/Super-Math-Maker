@@ -8,7 +8,7 @@ extends Node
 @onready var incorrectText = %"Incorrect Label"
 @onready var moneyText = %"MoneyLabel"
 
-const MAX_ANSWER_TIME = 0
+const MAX_ANSWER_TIME = 15
 var timeLeft = 10.0
 var currentQuestion = null
 var correct = 0
