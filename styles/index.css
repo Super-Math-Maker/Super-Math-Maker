@@ -86,15 +86,17 @@
     }
     .video{
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        text-align: left;
+        text-align: center;
         margin-left: 20px;
         margin-right: 20px;
         margin-top: 20px;
         margin-bottom: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 2px;
-        padding-bottom: 2px;
+    }
+    .video video{
+        width: 500px;
+        height: 300px;
+        border: 4px solid green;
+        border-radius: 4px;
     }
     .description h1{
         text-align: right;
